@@ -1,0 +1,233 @@
+diameter min: 14.89
+diameter max: 38.33
+diameter mean: 23.345111111111116
+
+thickness min: 0.71
+thickness max: 2.98
+thickness mean: 1.7000277777777777
+
+weight min: 0.457
+weight max: 26.741
+weight mean: 6.046155555555556
+
+edge
+reeded       177
+plain        163
+lettered      19
+decorated      1
+Name: count, dtype: int64
+
+main_metal
+copper       233
+silver        63
+steel         16
+nickel        12
+zinc          10
+manganese     10
+aluminum       9
+iron           7
+Name: count, dtype: int64
+
+magnetism
+0    310
+1     50
+Name: count, dtype: int64
+
+legal_us_tender
+1    180
+0    180
+Name: count, dtype: int64
+
+
+Strong Positive Correlations:
+       Feature 1          Feature 2  Correlation
+1       diameter             weight     0.930804
+16     thickness             weight     0.804688
+0       diameter          thickness     0.766446
+56     magnetism   main_metal_steel     0.459051
+54     magnetism  main_metal_nickel     0.372885
+52     magnetism    main_metal_iron     0.350637
+7       diameter        edge_reeded     0.287281
+36        weight        edge_reeded     0.286180
+105  edge_reeded  main_metal_silver     0.278206
+24     thickness  main_metal_copper     0.227050
+9       diameter  main_metal_copper     0.214223
+5       diameter      edge_lettered     0.208720
+
+Strong Negative Correlations:
+               Feature 1             Feature 2  Correlation
+91            edge_plain           edge_reeded    -0.894585
+118    main_metal_copper     main_metal_silver    -0.623833
+6               diameter            edge_plain    -0.382462
+35                weight            edge_plain    -0.359826
+97            edge_plain     main_metal_silver    -0.330820
+119    main_metal_copper      main_metal_steel    -0.292117
+117    main_metal_copper     main_metal_nickel    -0.251523
+51             magnetism     main_metal_copper    -0.241404
+45             magnetism       legal_us_tender    -0.240966
+82         edge_lettered           edge_reeded    -0.232146
+120    main_metal_copper       main_metal_zinc    -0.228951
+116    main_metal_copper  main_metal_manganese    -0.228951
+49             magnetism           edge_reeded    -0.218238
+21             thickness            edge_plain    -0.217211
+108  main_metal_aluminum     main_metal_copper    -0.216892
+81         edge_lettered            edge_plain    -0.214714
+
+K-Nearest Neighbor Classifier
+KNN Runtime Using Default KNN Params: 0.20659 seconds
+KNN Accuracy Score Using Default KNN Params: 87.963%
+Bag Runtime Using Default Bag Params w/ Default KNN Params: 1.20243 seconds
+Bag Accuracy Score Using Default Bag Params w/ Default KNN Params: 89.815%
+Fitting 10 folds for each of 400 candidates, totalling 4000 fits
+Best KNN Params According To GridSearchCV: {'algorithm': 'auto', 'leaf_size': 5, 'n_neighbors': 3, 'p': 1, 'weights': 'distance'}
+KNN Runtime Using Best KNN Params According To GridSearchCV: 3.18013 seconds
+KNN Accuracy Score Using Best KNN Params According To GridSearchCV: 94.444%
+Fitting 10 folds for each of 10 candidates, totalling 100 fits
+Best KNN Params According To RandomizedSearchCV: {'weights': 'distance', 'p': 1, 'n_neighbors': 3, 'leaf_size': 5, 'algorithm': 'kd_tree'}
+KNN Runtime Using Best KNN Params According To RandomizedSearchCV: 0.05234 seconds
+KNN Accuracy Score Using Best KNN Params According To RandomizedSearchCV: 94.444%
+Fitting 10 folds for each of 84 candidates, totalling 840 fits
+Best Bag Params According To GridSearchCV: {'bootstrap': False, 'bootstrap_features': True, 'max_samples': 1.0, 'n_estimators': 200}
+Bag Runtime Using Best Bag Params w/ Best KNN Params According To GridSearchCV: 6.14233 seconds
+Bag Accuracy Score Using Best Bag Params w/ Best KNN Params According To GridSearchCV: 95.370%
+Fitting 10 folds for each of 10 candidates, totalling 100 fits
+Best Bag Params According To RandomizedSearchCV: {'n_estimators': 400, 'max_samples': 1.0, 'bootstrap_features': True, 'bootstrap': True}
+Bag Runtime Using Best Bag Params w/ Best KNN Params According To RandomizedSearchCV: 4.38098 seconds
+Bag Accuracy Score Using Best Bag Params w/ Best KNN Params According To RandomizedSearchCV: 94.444%
+
+False Positive (FP): 3
+False Negative (FN): 2
+
+Decision Tree Classifier
+DT Runtime Using Default DT Params: 0.00300 seconds
+DT Accuracy Score Using Default DT Params: 86.111%
+Bag Runtime Using Default Bag Params w/ Default DT Params: 1.98918 seconds
+Bag Accuracy Score Using Default Bag Params w/ Default DT Params: 91.667%
+Fitting 10 folds for each of 7680 candidates, totalling 76800 fits
+Best DT Params According To GridSearchCV: {'class_weight': None, 'criterion': 'entropy', 'max_depth': 20, 'max_features': None, 'max_leaf_nodes': 100, 'min_samples_leaf': 1, 'min_samples_split': 2, 'splitter': 'random'}
+DT Runtime Using Best DT Params According To GridSearchCV: 14.72791 seconds
+DT Accuracy Score Using Best DT Params According To GridSearchCV: 94.444%
+Fitting 10 folds for each of 10 candidates, totalling 100 fits
+Best DT Params According To RandomizedSearchCV: {'splitter': 'random', 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_leaf_nodes': None, 'max_features': 'log2', 'max_depth': None, 'criterion': 'gini', 'class_weight': 'balanced'}
+DT Runtime Using Best DT Params According To RandomizedSearchCV: 0.07309 seconds
+DT Accuracy Score Using Best DT Params According To RandomizedSearchCV: 91.667%
+Fitting 10 folds for each of 84 candidates, totalling 840 fits
+Best Bag Params According To GridSearchCV: {'bootstrap': False, 'bootstrap_features': True, 'max_samples': 1.0, 'n_estimators': 100}
+Bag Runtime Using Best Bag Params w/ Best DT Params According To GridSearchCV: 7.46132 seconds
+Bag Accuracy Score Using Best Bag Params w/ Best DT Params According To GridSearchCV: 98.148%
+Fitting 10 folds for each of 10 candidates, totalling 100 fits
+Best Bag Params According To RandomizedSearchCV: {'n_estimators': 200, 'max_samples': 0.75, 'bootstrap_features': True, 'bootstrap': True}
+Bag Runtime Using Best Bag Params w/ Best DT Params According To RandomizedSearchCV: 2.43139 seconds
+Bag Accuracy Score Using Best Bag Params w/ Best DT Params According To RandomizedSearchCV: 97.222%
+
+False Positive (FP): 0
+False Negative (FN): 2
+
+edge_decorated: 3.763%
+main_metal_iron: 5.088%
+edge_reeded: 5.114%
+main_metal_manganese: 5.325%
+magnetism: 5.517%
+diameter: 5.631%
+weight: 5.773%
+thickness: 6.043%
+edge_plain: 6.17%
+edge_lettered: 6.208%
+main_metal_copper: 6.506%
+main_metal_zinc: 6.911%
+main_metal_steel: 7.503%
+main_metal_aluminum: 7.568%
+main_metal_nickel: 7.991%
+main_metal_silver: 8.888%
+
+Random Forest Classifier
+RF Runtime Using Default RF Params: 0.06175 seconds
+RF Accuracy Score Using Default RF Params: 97.222%
+Bag Runtime Using Default Bag Params w/ Default RF Params: 2.11494 seconds
+Bag Accuracy Score Using Default Bag Params w/ Default RF Params: 94.444%
+Fitting 10 folds for each of 4320 candidates, totalling 43200 fits
+Best RF Params According To GridSearchCV: {'bootstrap': False, 'class_weight': 'balanced', 'criterion': 'entropy', 'max_depth': 20, 'max_features': 'sqrt', 'min_samples_leaf': 2, 'min_samples_split': 2, 'n_estimators': 50}
+RF Runtime Using Best RF Params According To GridSearchCV: 457.57454 seconds
+RF Accuracy Score Using Best RF Params According To GridSearchCV: 94.444%
+Fitting 10 folds for each of 10 candidates, totalling 100 fits
+Best RF Params According To RandomizedSearchCV: {'n_estimators': 25, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt', 'max_depth': 20, 'criterion': 'gini', 'class_weight': None, 'bootstrap': False}
+RF Runtime Using Best RF Params According To RandomizedSearchCV: 0.56273 seconds
+RF Accuracy Score Using Best RF Params According To RandomizedSearchCV: 96.296%
+Fitting 10 folds for each of 84 candidates, totalling 840 fits
+Best Bag Params According To GridSearchCV: {'bootstrap': False, 'bootstrap_features': True, 'max_samples': 1.0, 'n_estimators': 100}
+Bag Runtime Using Best Bag Params w/ Best RF Params According To GridSearchCV: 191.83544 seconds
+Bag Accuracy Score Using Best Bag Params w/ Best RF Params According To GridSearchCV: 95.370%
+Fitting 10 folds for each of 10 candidates, totalling 100 fits
+Best Bag Params According To RandomizedSearchCV: {'n_estimators': 400, 'max_samples': 1.0, 'bootstrap_features': False, 'bootstrap': False}
+Bag Runtime Using Best Bag Params w/ Best RF Params According To RandomizedSearchCV: 94.80024 seconds
+Bag Accuracy Score Using Best Bag Params w/ Best RF Params According To RandomizedSearchCV: 97.222%
+
+False Positive (FP): 3
+False Negative (FN): 0
+
+edge_decorated: 0.0%
+main_metal_aluminum: 0.401%
+main_metal_iron: 0.585%
+edge_lettered: 0.801%
+main_metal_manganese: 0.977%
+main_metal_nickel: 1.007%
+main_metal_zinc: 1.36%
+main_metal_steel: 1.752%
+main_metal_copper: 1.981%
+main_metal_silver: 2.006%
+edge_plain: 2.6%
+edge_reeded: 3.727%
+magnetism: 6.41%
+weight: 23.358%
+thickness: 23.688%
+diameter: 29.346%
+
+Perceptron Classifier
+Perceptron Runtime Using Default Perceptron Params: 0.00100 seconds
+Perceptron Accuracy Score Using Default Perceptron Params: 72.222%
+Bag Runtime Using Default Bag Params w/ Default Perceptron Params: 1.91110 seconds
+Bag Accuracy Score Using Default Bag Params w/ Default Perceptron Params: 73.148%
+Fitting 10 folds for each of 57600 candidates, totalling 576000 fits
+Best Perceptron Params According To GridSearchCV: {'alpha': 0.001, 'early_stopping': True, 'eta0': 1, 'max_iter': 500, 'n_iter_no_change': 25, 'penalty': None, 'tol': 1e-05, 'validation_fraction': 0.1}
+Perceptron Runtime Using Best Perceptron Params According To GridSearchCV: 154.23980 seconds
+Perceptron Accuracy Score Using Best Perceptron Params According To GridSearchCV: 69.444%
+Fitting 10 folds for each of 10 candidates, totalling 100 fits
+Best Perceptron Params According To RandomizedSearchCV: {'validation_fraction': 0.3, 'tol': 1e-05, 'penalty': 'l2', 'n_iter_no_change': 20, 'max_iter': 500, 'eta0': 0.01, 'early_stopping': True, 'alpha': 0.0001}
+Perceptron Runtime Using Best Perceptron Params According To RandomizedSearchCV: 0.09692 seconds
+Perceptron Accuracy Score Using Best Perceptron Params According To RandomizedSearchCV: 63.889%
+Fitting 10 folds for each of 84 candidates, totalling 840 fits
+Best Bag Params According To GridSearchCV: {'bootstrap': False, 'bootstrap_features': False, 'max_samples': 0.5, 'n_estimators': 25}
+Bag Runtime Using Best Bag Params w/ Best Perceptron Params According To GridSearchCV: 55.96688 seconds
+Bag Accuracy Score Using Best Bag Params w/ Best Perceptron Params According To GridSearchCV: 74.074%
+Fitting 10 folds for each of 10 candidates, totalling 100 fits
+Best Bag Params According To RandomizedSearchCV: {'n_estimators': 200, 'max_samples': 0.75, 'bootstrap_features': False, 'bootstrap': True}
+Bag Runtime Using Best Bag Params w/ Best Perceptron Params According To RandomizedSearchCV: 10.01814 seconds
+Bag Accuracy Score Using Best Bag Params w/ Best Perceptron Params According To RandomizedSearchCV: 73.148%
+
+False Positive (FP): 21
+False Negative (FN): 7
+
+Logistic Regression Classifier
+LR Runtime Using Default LR Params: 0.00200 seconds
+LR Accuracy Score Using Default LR Params: 67.593%
+Bag Runtime Using Default Bag Params w/ Default LR Params: 1.84968 seconds
+Bag Accuracy Score Using Default Bag Params w/ Default LR Params: 69.444%
+Fitting 10 folds for each of 5040 candidates, totalling 50400 fits
+Best LR Params According To GridSearchCV: {'C': 0.01, 'class_weight': None, 'intercept_scaling': 1, 'max_iter': 100, 'solver': 'newton-cg', 'tol': 0.1, 'warm_start': True}
+LR Runtime Using Best LR Params According To GridSearchCV: 11.94676 seconds
+LR Accuracy Score Using Best LR Params According To GridSearchCV: 55.556%
+Fitting 10 folds for each of 10 candidates, totalling 100 fits
+Best LR Params According To RandomizedSearchCV: {'warm_start': False, 'tol': 0.1, 'solver': 'newton-cg', 'max_iter': 100, 'intercept_scaling': 10, 'class_weight': 'balanced', 'C': 50}
+LR Runtime Using Best LR Params According To RandomizedSearchCV: 0.06024 seconds
+LR Accuracy Score Using Best LR Params According To RandomizedSearchCV: 65.741%
+Fitting 10 folds for each of 84 candidates, totalling 840 fits
+Best Bag Params According To GridSearchCV: {'bootstrap': False, 'bootstrap_features': True, 'max_samples': 1.0, 'n_estimators': 400}
+Bag Runtime Using Best Bag Params w/ Best LR Params According To GridSearchCV: 9.02997 seconds
+Bag Accuracy Score Using Best Bag Params w/ Best LR Params According To GridSearchCV: 65.741%
+Fitting 10 folds for each of 10 candidates, totalling 100 fits
+Best Bag Params According To RandomizedSearchCV: {'n_estimators': 400, 'max_samples': 0.5, 'bootstrap_features': True, 'bootstrap': True}
+Bag Runtime Using Best Bag Params w/ Best LR Params According To RandomizedSearchCV: 3.29277 seconds
+Bag Accuracy Score Using Best Bag Params w/ Best LR Params According To RandomizedSearchCV: 65.741%
+
+False Positive (FP): 19
+False Negative (FN): 14
